@@ -25,7 +25,7 @@ export class AddMemberComponent implements OnInit {
     });
   }
 
-  addMember(formValues: any): void {
+  addMember(): void {
     if (this.memberForm.valid) {
       if (this.memberForm.dirty) {
       const editedMember = this.memberForm.value;
@@ -39,7 +39,7 @@ export class AddMemberComponent implements OnInit {
   }
 
   memberAdded(): void {
-    alert('A member has been added');
+    alert('A member has been added.');
     this.router.navigate(['/']);
   }
 

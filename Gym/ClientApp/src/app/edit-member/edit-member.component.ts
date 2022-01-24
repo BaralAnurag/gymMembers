@@ -55,7 +55,7 @@ export class EditMemberComponent implements OnInit {
     });
   }
 
-  submit(memberEditForm): void {
+  submit(): void {
     if (this.memberEditForm.valid) {
       if (this.memberEditForm.dirty) {
       const editedMember = {...this.selectedMember, ...this.memberEditForm.value};
