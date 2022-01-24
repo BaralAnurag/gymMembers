@@ -1,0 +1,36 @@
+<div class="container">
+  <div>
+    <h3>Members</h3>
+    <button type="button" class="btn btn-primary addMember" [routerLink]="['/addMember']">Add a Member</button>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Height</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let member of allMembers'>
+        <td>{{member.fullName}}</td>
+        <td>{{member.startDate | date: 'MM-dd-yyyy'}}</td>
+        <td>{{member.weight}}</td>
+        <td>{{member.height}}</td>
+        <td>
+          <a [routerLink]="['/editMember', member.id]">
+            <i class="fa fa-pencil-square-o fa-2x editAction" title="Edit" aria-hidden="true"></i>
+          </a>
+        </td>
+        <td>
+          <a (click)="delete(member.id)">
+            <i class="fa fa-trash fa-2x deleteAction" title="Delete" aria-hidden="true"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

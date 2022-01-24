@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form (ngSubmit)="submit(memberEditForm)" [formGroup]="memberEditForm">
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="fullName">Full Name</label>
+        <div class="col-md-8">
+          <input class="form-control" type="text" placeholder="Name (required)" formControlName="fullName"
+            value="selectedMember.fullName" />
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="startDate">Start Date</label>
+        <div class="col-md-8">
+          <input class="form-control" type="date" formControlName="startDate"
+            value="{{ selectedMember.startDate | date:'yyyy-MM-dd' }}" />
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="weight">Weight (lbs)</label>
+        <div class="col-md-8">
+          <input class="form-control" type="number" placeholder="Weight (required)" formControlName="weight" />
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="height">Height (inches)</label>
+        <div class="col-md-8">
+          <input class="form-control" type="number" placeholder="Weight (required)" formControlName="height" />
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3" style="width:80px;" type="submit" [disabled]="!memberEditForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary mr-3" style="width:80px;" type="button" title="Cancel your edits"
+            [routerLink]="['']">
+            Cancel
+          </button>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
